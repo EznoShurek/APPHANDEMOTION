@@ -10,24 +10,20 @@ import { ThemedView } from '@/components/ThemedView';
 export default function TabTwoScreen() {
   return (
     <ParallaxScrollView
-      headerBackgroundColor={{ light: '#D0D0D0', dark: '#353636' }}
-      headerImage={<Ionicons size={310} name="code-slash" style={styles.headerImage} />}>
+      headerBackgroundColor={{  light: '#A1CEDC', dark: '#1D3D47' }}
+      headerImage={<Ionicons size={310}  style={styles.headerImage} />}>
       <ThemedView style={styles.titleContainer}>
         <ThemedText type="title">Emoções</ThemedText>
       </ThemedView>
       <ThemedText>Aqui terá um resumo de suas emoções nos últimos 7 dias.</ThemedText>
-      <Collapsible title="File-based routing">
+      <Collapsible title="Ajuda?">
+        
         <ThemedText>
-          This app has two screens:{' '}
-          <ThemedText type="defaultSemiBold">app/(tabs)/index.tsx</ThemedText> and{' '}
-          <ThemedText type="defaultSemiBold">app/(tabs)/explore.tsx</ThemedText>
+          Esse aplicativo é apenas uma forma de auxiliar e se você sente que precisa de uma ajuda mais ampla então consulte um<ThemedText type="defaultSemiBold"> profissional da saúde.</ThemedText>{' '}
+          Site e número do <ThemedText type="defaultSemiBold"> CVV (centro de valorização da vida) </ThemedText> logo abaixo.
         </ThemedText>
-        <ThemedText>
-          The layout file in <ThemedText type="defaultSemiBold">app/(tabs)/_layout.tsx</ThemedText>{' '}
-          sets up the tab navigator.
-        </ThemedText>
-        <ExternalLink href="https://docs.expo.dev/router/introduction">
-          <ThemedText type="link">Learn more</ThemedText>
+        <ExternalLink href="https://cvv.org.br/">
+          <ThemedText type="link">Centro de Valorização da Vida</ThemedText> Sua vida importa.
         </ExternalLink>
       </Collapsible>
       
