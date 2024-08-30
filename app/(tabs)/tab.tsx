@@ -13,9 +13,9 @@ export default function TabTwoScreen() {
       headerBackgroundColor={{ light: '#D0D0D0', dark: '#353636' }}
       headerImage={<Ionicons size={310} name="code-slash" style={styles.headerImage} />}>
       <ThemedView style={styles.titleContainer}>
-        <ThemedText type="title">Sobre você!</ThemedText>
+        <ThemedText type="title">Emoções</ThemedText>
       </ThemedView>
-      <ThemedText>Fale mais sobre você, se sinta a vontade e abra seu coração!</ThemedText>
+      <ThemedText>Aqui terá um resumo de suas emoções nos últimos 7 dias.</ThemedText>
       <Collapsible title="File-based routing">
         <ThemedText>
           This app has two screens:{' '}
