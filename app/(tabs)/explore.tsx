@@ -31,13 +31,11 @@ export default function TabTwoScreen() {
         multiline
       />
       <TextInput
-      style={styles.input}
-      placeholder="A maior alegria da minha semana foi..."
-      placeholderTextColor="#999"
-      multiline
-    />
-    
-      
+        style={styles.input}
+        placeholder="A maior alegria da minha semana foi..."
+        placeholderTextColor="#999"
+        multiline
+      />
     </ParallaxScrollView>
   );
 }
@@ -52,5 +50,16 @@ const styles = StyleSheet.create({
   titleContainer: {
     flexDirection: 'row',
     gap: 8,
+  },
+  input: {
+    height: 100,           // Altura da caixa de texto
+    padding: 10,           // Espaçamento interno
+    borderWidth: 2,        // Espessura da borda
+    borderColor: '#000',   // Cor da borda (preto)
+    borderRadius: 8,       // Bordas arredondadas
+    fontSize: 16,          // Tamanho da fonte
+    textAlignVertical: 'top', // Alinha o texto no topo ao digitar
+    backgroundColor: '#fff', // Cor de fundo da caixa de texto (branco)
+    marginTop: 12,         // Espaçamento entre caixas de texto < apoio
   },
 });
