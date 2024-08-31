@@ -4,6 +4,7 @@ import { HelloWave } from '@/components/HelloWave';
 import ParallaxScrollView from '@/components/ParallaxScrollView';
 import { ThemedText } from '@/components/ThemedText';
 import { ThemedView } from '@/components/ThemedView';
+import { TextInput } from 'react-native';
 
 export default function HomeScreen() {
   return (
@@ -21,7 +22,12 @@ export default function HomeScreen() {
       </ThemedView>
       <ThemedView style={styles.stepContainer}>
         <ThemedText type="subtitle">Como você está se sentindo hoje?</ThemedText>
-        
+        <TextInput
+      style={styles.input}
+      placeholder="Tenho me sentido assim porque..."
+      placeholderTextColor="#999"
+      multiline
+    />
        
       </ThemedView>
     </ParallaxScrollView>

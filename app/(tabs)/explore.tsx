@@ -6,6 +6,8 @@ import { ExternalLink } from '@/components/ExternalLink';
 import ParallaxScrollView from '@/components/ParallaxScrollView';
 import { ThemedText } from '@/components/ThemedText';
 import { ThemedView } from '@/components/ThemedView';
+import { TextInput } from 'react-native';
+
 
 export default function TabTwoScreen() {
   return (
@@ -13,10 +15,28 @@ export default function TabTwoScreen() {
       headerBackgroundColor={{ light: '#A1CEDC', dark: '#1D3D47' }}
       headerImage={<Ionicons size={310}  style={styles.headerImage} />}>
       <ThemedView style={styles.titleContainer}>
-        <ThemedText type="title">Sobre você!!!</ThemedText>
+        <ThemedText type="title">Sobre você!</ThemedText>
       </ThemedView>
       <ThemedText>Fale mais sobre você, se sinta a vontade e abra seu coração!</ThemedText>
-     
+      <TextInput
+        style={styles.input}
+        placeholder="As minhas noites de sono tem sido..."
+        placeholderTextColor="#999"
+        multiline
+      />
+      <TextInput
+        style={styles.input}
+        placeholder="Como você se imagina daqui a um mês?..."
+        placeholderTextColor="#999"
+        multiline
+      />
+      <TextInput
+      style={styles.input}
+      placeholder="A maior alegria da minha semana foi..."
+      placeholderTextColor="#999"
+      multiline
+    />
+    
       
     </ParallaxScrollView>
   );
