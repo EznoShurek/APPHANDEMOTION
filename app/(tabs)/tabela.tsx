@@ -13,9 +13,11 @@ export default function TabTwoScreen() {
       headerBackgroundColor={{  light: '#A1CEDC', dark: '#1D3D47' }}
       headerImage={<Ionicons size={310}  style={styles.headerImage} />}>
       <ThemedView style={styles.titleContainer}>
-        <ThemedText type="title">Emoções</ThemedText>
+        <ThemedText type="title">Você importa!</ThemedText>
       </ThemedView>
-      <ThemedText>Aqui terá um resumo de suas emoções nos últimos 7 dias.</ThemedText>
+      <ThemedText>
+      A chance de você estar aqui é incrivelmente pequena, e isso faz de sua existência algo verdadeiramente precioso. Mesmo nas dificuldades e nas oscilações emocionais, lembre-se: você tem um valor imenso e uma contribuição única para oferecer ao mundo. Sua presença faz toda a diferença.
+      </ThemedText>
       <Collapsible title="Ajuda?">
         
         <ThemedText>
