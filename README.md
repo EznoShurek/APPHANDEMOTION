@@ -42,6 +42,6 @@ Tecnologias e aplicações utilizadas:
 * Uso de react native para o app.
 * Uso do expo para visualização em tempo real das aplicações tanto no computador quanto no celular android.
 * Criação do Canva para a logo do app.
-
+* uso do banco de dados PostgreSQL
 
 
