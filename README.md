@@ -15,9 +15,9 @@ Três estudantes que se uniram para realizar o projeto, os responsáveis são:
 
    Lucas[...]
 
-Designe:
+Design:
 
-Embora o resultado final não tenha sido totalmente fiel ao designe é importante ter algo para se basear durante o desenvolvimento e também ter clareza entre todos os responsáveis para não haver distorções
+Embora o resultado final não tenha sido totalmente fiel ao design é importante ter algo para se basear durante o desenvolvimento e também ter clareza entre todos os responsáveis para não haver distorções
 
 
 <img width="170" alt="image" src="https://github.com/user-attachments/assets/0746ec7e-b0d2-4aca-a567-0fc1b44ece1b">
@@ -30,10 +30,10 @@ Embora o resultado final não tenha sido totalmente fiel ao designe é important
 
 
 Tecnologias e aplicações utilizadas:
-* Criação de designe> Figma.
-* Desenvolvimento do app > Visual Studio Code.
+* Criação de design> Figma.
+* Desenvolvimento do app > Visual Studio Code e IntelliJ IDEA.
 * Uso de react native para o app.
-* Uso do expo para visualização em tempo real das aplicações tanto no computador tanto no celular android Multilaser EM2.
+* Uso do expo para visualização em tempo real das aplicações tanto no computador quanto no celular android.
 * Criação do Canva para a logo do app.
 
 
