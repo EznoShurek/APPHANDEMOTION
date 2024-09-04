@@ -19,13 +19,13 @@ Design:
 
 Embora o resultado final não tenha sido totalmente fiel ao design é importante ter algo para se basear durante o desenvolvimento e também ter clareza entre todos os responsáveis para não haver distorções
 
-
+tela de cadastro
 <img width="162" alt="image" src="https://github.com/user-attachments/assets/0cd69551-db4b-416e-9e6c-36a43e1b0e84">
-
+tela "como se sente?"
 <img width="160" alt="image" src="https://github.com/user-attachments/assets/124646c7-d9ea-4e87-8276-073be6418780">
-
+tela perguntas mais específicas
 <img width="161" alt="image" src="https://github.com/user-attachments/assets/34f3cf38-af52-47c7-9c2d-a216838fcf74">
-
+tela relatório
 <img width="163" alt="image" src="https://github.com/user-attachments/assets/b5b6266b-3046-44e6-b8b2-380fd59dd120">
 
 
