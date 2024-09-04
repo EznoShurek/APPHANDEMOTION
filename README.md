@@ -20,13 +20,13 @@ Design:
 Embora o resultado final não tenha sido totalmente fiel ao design é importante ter algo para se basear durante o desenvolvimento e também ter clareza entre todos os responsáveis para não haver distorções
 
 
-<img width="170" alt="image" src="https://github.com/user-attachments/assets/0746ec7e-b0d2-4aca-a567-0fc1b44ece1b">
+![download](https://github.com/user-attachments/assets/46433bbd-b3db-4244-b9e9-95eaaff4907d)
 
-<img width="199" alt="image" src="https://github.com/user-attachments/assets/79be4f1c-0657-4dc4-928f-69fea42fb778">
+![download](https://github.com/user-attachments/assets/ee265d66-0034-4cd0-b73b-0d16c171f4d0)
 
-<img width="149" alt="image" src="https://github.com/user-attachments/assets/bf50af80-5d42-4061-9221-5f0280499b93">
+![download](https://github.com/user-attachments/assets/9187338f-7ebb-4ba5-b4e8-0248bcd7321e)
 
-<img width="181" alt="image" src="https://github.com/user-attachments/assets/b1639fa0-b1a3-42df-93a8-fe5d6b6649d8">
+![download](https://github.com/user-attachments/assets/9ca6f0b9-2cda-418c-a9ca-4174f1e92124)
 
 
 Tecnologias e aplicações utilizadas:
