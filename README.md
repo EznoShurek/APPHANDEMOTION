@@ -4,7 +4,7 @@ Esse é um projeto acadêmico baseado na matéria de criação de apps mobile, t
 
 # Oque é?
 
-Esse projeto foi nomeado como "HandEmotion", pois a ideia é você ter o controle das próprias emoções além de se autoconhecer, reconhecer oque te faz mal, oque te faz bem e saber gerir a forma como se sente.
+Esse projeto foi nomeado como "HandEmotion", pois a ideia é você ter o controle das próprias emoções além de se autoconhecer, reconhecer oque te faz mal, oque te faz bem e saber gerir a forma como se sente, tudo isso na palma da mão!
 Três estudantes que se uniram para realizar o projeto, os responsáveis são:
   
    
@@ -15,7 +15,9 @@ Três estudantes que se uniram para realizar o projeto, os responsáveis são:
 
    Lucas[...]
 
-Nosso designe foi feito no figma. Embora o resultado final não tenha sido totalmente fiel ao designe é iportante ter algo para se basear durante o desenvolvimento e também ter clareza entre todos os responsáveis por isso,
+Designe:
+
+Embora o resultado final não tenha sido totalmente fiel ao designe é iportante ter algo para se basear durante o desenvolvimento e também ter clareza entre todos os responsáveis para não haver distorções
 
 
 <img width="170" alt="image" src="https://github.com/user-attachments/assets/0746ec7e-b0d2-4aca-a567-0fc1b44ece1b">
@@ -25,6 +27,14 @@ Nosso designe foi feito no figma. Embora o resultado final não tenha sido total
 <img width="149" alt="image" src="https://github.com/user-attachments/assets/bf50af80-5d42-4061-9221-5f0280499b93">
 
 <img width="181" alt="image" src="https://github.com/user-attachments/assets/b1639fa0-b1a3-42df-93a8-fe5d6b6649d8">
+
+
+Tecnologias e aplicações utilizadas:
+criação de designe> Figma.
+desenvolvimento do app > Visual Studio Code.
+* uso de react native para o app.
+* uso do expo para visualização em tempo real das aplicações tanto no computador tanto no celular android Multilaser EM2.
+* criação do Canva para a logo do app.
 
 
 
