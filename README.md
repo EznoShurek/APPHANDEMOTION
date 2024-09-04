@@ -10,7 +10,7 @@ Três estudantes que se uniram para realizar o projeto, os responsáveis são:
    
    Enzo Emanuel Brazolin "https://www.linkedin.com/in/enzo-e-brazolin-b51776230/"
    
-   João Victor Henriger "https://www.linkedin.com/in/jo%C3%A3o-heringer-4932281bb/"
+   João Victor Heringer "https://www.linkedin.com/in/jo%C3%A3o-heringer-4932281bb/"
   
 
    Lucas[...]
