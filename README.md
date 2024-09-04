@@ -30,11 +30,11 @@ Embora o resultado final não tenha sido totalmente fiel ao designe é iportante
 
 
 Tecnologias e aplicações utilizadas:
-criação de designe> Figma.
-desenvolvimento do app > Visual Studio Code.
-* uso de react native para o app.
-* uso do expo para visualização em tempo real das aplicações tanto no computador tanto no celular android Multilaser EM2.
-* criação do Canva para a logo do app.
+* Criação de designe> Figma.
+* Desenvolvimento do app > Visual Studio Code.
+* Uso de react native para o app.
+* Uso do expo para visualização em tempo real das aplicações tanto no computador tanto no celular android Multilaser EM2.
+* Criação do Canva para a logo do app.
 
 
 
