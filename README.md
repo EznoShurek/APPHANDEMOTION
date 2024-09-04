@@ -45,8 +45,11 @@ Tecnologias e aplicações utilizadas:
 * Uso do banco de dados PostgreSQL.
 
   Tempo de desenvolvimento do projeto
+  
   1ª semana >
+  
   2ª semana >
+  
   3ª semana >
 
 
