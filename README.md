@@ -46,23 +46,23 @@ Tecnologias e aplicações utilizadas:
 
   Tempo de desenvolvimento do projeto
   
-  1ª semana >
+  1ª Semana >
 
-  * discussão de ideias (
+  * Discussão de ideias (
   
-    - estudo de ferramentas
-
-    - design do app
+    - Design do app
     
-    - separação de tarefas )
+    - Separação de tarefas )
+
+  * Estudo de ferramentas
  
-  * criação do repositório no github
+  * Criação do repositório no github
 
 
-  2ª semana >
+  2ª Semana >
 
-  * criação do projeto em react native.
+  * Criação do projeto em react native.
    
-  *  criação do banco de dados
+  *  Criação do banco de dados
     
-  *  criando telas e realizando pequenas mudanças ( estéticas e funcionais )
+  *  Criando telas e realizando pequenas mudanças ( estéticas e funcionais )
