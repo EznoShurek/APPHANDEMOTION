@@ -41,7 +41,12 @@ Tecnologias e aplicações utilizadas:
 * Desenvolvimento do app > Visual Studio Code e IntelliJ IDEA.
 * Uso de react native para o app.
 * Uso do expo para visualização em tempo real das aplicações tanto no computador quanto no celular android.
-* Criação do Canva para a logo do app.
-* uso do banco de dados PostgreSQL
+* Uso do Canva para a logo do app.
+* Uso do banco de dados PostgreSQL.
+
+  Tempo de desenvolvimento do projeto
+  1ª semana >
+  2ª semana >
+  3ª semana >
 
 
