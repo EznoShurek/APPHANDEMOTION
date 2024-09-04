@@ -26,7 +26,8 @@ Embora o resultado final não tenha sido totalmente fiel ao design é importante
 
 <img width="161" alt="image" src="https://github.com/user-attachments/assets/34f3cf38-af52-47c7-9c2d-a216838fcf74">
 
-![Uploading image.png…]()
+<img width="163" alt="image" src="https://github.com/user-attachments/assets/b5b6266b-3046-44e6-b8b2-380fd59dd120">
+
 
 
 
