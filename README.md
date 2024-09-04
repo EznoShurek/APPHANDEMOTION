@@ -17,7 +17,7 @@ Três estudantes que se uniram para realizar o projeto, os responsáveis são:
 
 Designe:
 
-Embora o resultado final não tenha sido totalmente fiel ao designe é iportante ter algo para se basear durante o desenvolvimento e também ter clareza entre todos os responsáveis para não haver distorções
+Embora o resultado final não tenha sido totalmente fiel ao designe é importante ter algo para se basear durante o desenvolvimento e também ter clareza entre todos os responsáveis para não haver distorções
 
 
 <img width="170" alt="image" src="https://github.com/user-attachments/assets/0746ec7e-b0d2-4aca-a567-0fc1b44ece1b">
