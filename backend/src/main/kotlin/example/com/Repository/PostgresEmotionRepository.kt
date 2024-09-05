@@ -8,6 +8,7 @@ import example.com.model.Emotion
 import example.com.model.Intensity
 import org.jetbrains.exposed.sql.SqlExpressionBuilder.eq
 import org.jetbrains.exposed.sql.deleteWhere
+import org.jetbrains.exposed.sql.update
 
 class PostgresEmotionRepository : EmotionRepository {
     override suspend fun allEmotions(): List<Emotion> = suspendTransaction {
@@ -36,15 +37,21 @@ class PostgresEmotionRepository : EmotionRepository {
         }
     }
 
-    override suspend fun removeEmotion(name: String): Boolean = suspendTransaction{
+    override suspend fun removeEmotion(id: Int): Boolean = suspendTransaction{
         val rowsDeleted = EmotionTable.deleteWhere {
-            EmotionTable.name eq name
+            EmotionTable.id eq id
         }
 
         rowsDeleted == 1
     }
 
-    override suspend fun editEmotion(name: String): Boolean {
-        TODO("Not yet implemented")
+    override suspend fun editEmotion(emotion: Emotion): Boolean = suspendTransaction {
+        val rowsAffected = EmotionTable.update({ EmotionTable.id eq emotion.id }) {
+            it[name] = emotion.name
+            it[description] = emotion.description
+            it[intensity] = emotion.intensity.toString()
+        }
+
+        rowsAffected > 0
     }
 }

@@ -29,6 +29,7 @@ suspend fun <T> suspendTransaction(block: Transaction.() -> T): T =
 
 
 fun daoToModel(dao: EmotionDAO) = Emotion(
+    dao.id.value,
     dao.name,
     dao.description,
     Intensity.valueOf(dao.intensity)

@@ -8,6 +8,6 @@ interface EmotionRepository {
     suspend fun emotionsByIntensity(intensity: Intensity): List<Emotion>
     suspend fun emotionByName(name: String): Emotion?
     suspend fun addEmotion(emotion: Emotion)
-    suspend fun removeEmotion(name: String): Boolean
-    suspend fun editEmotion(name: String): Boolean
+    suspend fun removeEmotion(id: Int): Boolean
+    suspend fun editEmotion(emotion: Emotion): Boolean
 }

@@ -1,11 +1,8 @@
 package com.example.plugins
 
 import example.com.Repository.EmotionRepository
-import example.com.Repository.TaskRepository
 import example.com.model.Emotion
 import example.com.model.Intensity
-import example.com.model.Priority
-import example.com.model.Task
 import io.ktor.http.*
 import io.ktor.serialization.*
 import io.ktor.serialization.kotlinx.json.*
@@ -73,16 +70,30 @@ fun Application.configureSerialization(repository: EmotionRepository) {
                 }
             }
 
-            delete("/{emotionName}") {
-                val name = call.parameters["emotionName"]
-                if (name == null) {
+            delete("/{emotionId}") {
+                val id = call.parameters["emotionId"]
+                if (id == null) {
                     call.respond(HttpStatusCode.BadRequest)
                     return@delete
                 }
-                if (repository.removeEmotion(name)) {
+                if (repository.removeEmotion(id.toInt())) {
                     call.respond(HttpStatusCode.NoContent)
                 } else {
                     call.respond(HttpStatusCode.NotFound)
+                }
+            }
+
+            put {
+                try {
+                    val emotion = call.receive<Emotion>()
+                    if (repository.editEmotion(emotion))
+                        call.respond(HttpStatusCode.OK)
+                    else
+                        call.respond(HttpStatusCode.NotFound)
+                } catch (ex: IllegalStateException) {
+                    call.respond(HttpStatusCode.BadRequest)
+                } catch (ex: JsonConvertException) {
+                    call.respond(HttpStatusCode.BadRequest)
                 }
             }
         }
