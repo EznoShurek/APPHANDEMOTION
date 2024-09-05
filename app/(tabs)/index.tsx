@@ -5,8 +5,11 @@ import ParallaxScrollView from '@/components/ParallaxScrollView';
 import { ThemedText } from '@/components/ThemedText';
 import { ThemedView } from '@/components/ThemedView';
 
+import PostEmotion from '@/api/routes/PostEmotion';
+
 export default function HomeScreen() {
   const [selectedEmotion, setSelectedEmotion] = useState<string | null>(null);
+  const [description, setDescription] = useState("")
 
   return (
     <ParallaxScrollView
@@ -58,7 +61,15 @@ export default function HomeScreen() {
           placeholder="Tenho me sentido assim porque..."
           placeholderTextColor="#999"
           multiline
+          value={description}
+          onChangeText={setDescription}
         />
+
+      <PostEmotion
+        name = {selectedEmotion}
+        description = {description}
+        intensity = "ALTA"
+      />
       </ThemedView>
     </ParallaxScrollView>
   );
