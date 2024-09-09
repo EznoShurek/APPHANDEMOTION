@@ -1,9 +1,11 @@
 import { EmotionModel } from "@/model/EmotionModel";
+import React from "react";
 import { useEffect, useState } from "react";
 import { api } from "../api";
 import { formatDate } from "@/utils/formatDate";
 import { AppError } from "@/utils/AppError";
-import { View, Text, Button } from "react-native";
+import { FlatList, View } from "react-native";
+import ItemEmotion from "@/components/EmotionItem";
 
 export function AllEmotions() {
     const [emotion, setEmotion] = useState<EmotionModel[]>([])
@@ -27,17 +29,19 @@ export function AllEmotions() {
         }
     }
 
-    useEffect(() => {
-        fetchEmotion()
-    }, []);
+    useEffect(
+        () => {
+            fetchEmotion()
+        }, []
+    );
 
     return (
-        <View>
-            <Text> Pressione o botao para consumir a API </Text>
-            <Button
-                onPress = { fetchEmotion }
-                title = "Pressione"
+        <FlatList
+        data={emotion}
+        renderItem={({item}) => 
+            <ItemEmotion 
+                {...item}
             />
-        </View>
+        }/>
     )
 }

@@ -1,20 +1,15 @@
 import Ionicons from '@expo/vector-icons/Ionicons';
 import { StyleSheet, Image, Platform } from 'react-native';
-
-import { Collapsible } from '@/components/Collapsible';
-import { ExternalLink } from '@/components/ExternalLink';
 import ParallaxScrollView from '@/components/ParallaxScrollView';
+import { AllEmotions } from '@/api/routes/GetEmotion';
 import { ThemedText } from '@/components/ThemedText';
-import { ThemedView } from '@/components/ThemedView';
-import { TextInput } from 'react-native';
-
 
 export default function TabTwoScreen() {
   return (
     <ParallaxScrollView
       headerBackgroundColor={{ light: '#A1CEDC', dark: '#1D3D47' }}
       headerImage={<Ionicons size={310}  style={styles.headerImage} />}>
-      <ThemedView style={styles.titleContainer}>
+      {/* <ThemedView style={styles.titleContainer}>
         <ThemedText type="title">Sobre você!</ThemedText>
       </ThemedView>
       <ThemedText>Fale mais sobre você, se sinta a vontade e abra seu coração!</ThemedText>
@@ -35,12 +30,19 @@ export default function TabTwoScreen() {
         placeholder="A maior alegria da minha semana foi..."
         placeholderTextColor="#999"
         multiline
-      />
+      /> */}
+      <ThemedText style={styles.bodyTitle}>Linha do tempo de emoções</ThemedText>
+      <AllEmotions/>
     </ParallaxScrollView>
   );
 }
 
 const styles = StyleSheet.create({
+  bodyTitle: {
+    alignSelf: 'center',
+    padding: 6,
+    fontSize: 18
+  },
   headerImage: {
     color: '#808080',
     bottom: -90,
