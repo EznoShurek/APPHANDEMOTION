@@ -1,11 +1,29 @@
 import React, { useState } from 'react';
-import { Image, StyleSheet, TextInput, TouchableOpacity, View } from 'react-native';
+import { Alert, Image, StyleSheet, TextInput, TouchableOpacity, View } from 'react-native';
 import { Entypo } from '@expo/vector-icons';
 import ParallaxScrollView from '@/components/ParallaxScrollView';
 import { ThemedText } from '@/components/ThemedText';
 import { ThemedView } from '@/components/ThemedView';
 
 import PostEmotion from '@/api/routes/PostEmotion';
+
+function moreInfo() {
+  Alert.alert(
+    "Emoção salva", 
+    "Deseja falar mais sobre o seu dia?",
+    [
+      {
+        text: "Não",
+        style: "cancel"
+      },
+      {
+        text: "Sim",
+        onPress: () => console.log("sim"),
+        style: "default"
+      }
+    ]
+);
+}
 
 export default function HomeScreen() {
   const [selectedEmotion, setSelectedEmotion] = useState<string | null>(null);
@@ -69,6 +87,7 @@ export default function HomeScreen() {
         name = {selectedEmotion}
         description = {description}
         intensity = "ALTA"
+        onAddEmotion={moreInfo}
       />
       </ThemedView>
     </ParallaxScrollView>

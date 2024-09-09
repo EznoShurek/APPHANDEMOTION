@@ -1,11 +1,9 @@
-import { EmotionModel } from "@/model/EmotionModel";
-import axios from "axios";
 import { useState } from "react";
 import { api } from "../api";
 import { View, Text, Button } from "react-native";
 
 
-export default function PostEmotion(props: { name: string | null; description: string; intensity: string; }) {
+export default function PostEmotion(props: { name: string | null; description: string; intensity: string; onAddEmotion: any}) {
     const [isLoading, setIsLoading] = useState(false)
 
     async function sendEmotion() {
@@ -16,6 +14,7 @@ export default function PostEmotion(props: { name: string | null; description: s
             props
         ).then( response => {
             console.log(response)
+            props.onAddEmotion()
         })
         .catch( error => {
             console.log(error)
