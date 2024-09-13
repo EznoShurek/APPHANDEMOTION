@@ -38,9 +38,10 @@ export function AllEmotions() {
     return (
         <FlatList
         data={emotion}
-        renderItem={({item}) => 
+        scrollEnabled={false}
+        renderItem={item => 
             <ItemEmotion 
-                {...item}
+                itemInfo={item.item}
             />
         }/>
     )
