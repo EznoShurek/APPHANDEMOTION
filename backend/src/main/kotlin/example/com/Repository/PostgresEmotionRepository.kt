@@ -9,6 +9,7 @@ import example.com.model.Intensity
 import org.jetbrains.exposed.sql.SqlExpressionBuilder.eq
 import org.jetbrains.exposed.sql.deleteWhere
 import org.jetbrains.exposed.sql.update
+import java.time.LocalDate
 
 class PostgresEmotionRepository : EmotionRepository {
     override suspend fun allEmotions(): List<Emotion> = suspendTransaction {
@@ -34,6 +35,7 @@ class PostgresEmotionRepository : EmotionRepository {
             name = emotion.name
             description = emotion.description
             intensity = emotion.intensity.toString()
+            createdAt = LocalDate.now().toString()
         }
     }
 

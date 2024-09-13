@@ -11,5 +11,6 @@ data class Emotion(
     val id: Int,
     val name: String,
     val description: String,
-    val intensity: Intensity
+    val intensity: Intensity,
+    val createdAt: String
 )
