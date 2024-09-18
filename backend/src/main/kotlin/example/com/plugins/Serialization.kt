@@ -77,7 +77,7 @@ fun Application.configureSerialization(repository: EmotionRepository) {
                     return@delete
                 }
                 if (repository.removeEmotion(id.toInt())) {
-                    call.respond(HttpStatusCode.NoContent)
+                    call.respond(HttpStatusCode.OK)
                 } else {
                     call.respond(HttpStatusCode.NotFound)
                 }
@@ -90,6 +90,18 @@ fun Application.configureSerialization(repository: EmotionRepository) {
                         call.respond(HttpStatusCode.OK)
                     else
                         call.respond(HttpStatusCode.NotFound)
+                } catch (ex: IllegalStateException) {
+                    call.respond(HttpStatusCode.BadRequest)
+                } catch (ex: JsonConvertException) {
+                    call.respond(HttpStatusCode.BadRequest)
+                }
+            }
+        }
+
+        route("/extra") {
+            post {
+                try {
+
                 } catch (ex: IllegalStateException) {
                     call.respond(HttpStatusCode.BadRequest)
                 } catch (ex: JsonConvertException) {
