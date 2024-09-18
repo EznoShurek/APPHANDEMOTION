@@ -63,7 +63,7 @@ export default function HomeScreen() {
           description = {description}
           intensity = "ALTA"
           onAddEmotion={() => {
-            moreInfo
+            moreInfo()
             setDescription("")
           }}
         />

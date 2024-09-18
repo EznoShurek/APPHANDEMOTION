@@ -4,8 +4,11 @@ import { ThemedText } from "./ThemedText";
 import { ThemedView } from "./ThemedView";
 import { EmotionModel } from "@/model/EmotionModel";
 import { useState } from "react";
+import { formatDate } from "@/utils/formatDate";
 
-export default function ItemEmotion(props: {itemInfo: EmotionModel}) {
+import { DeleteEmotion } from "@/api/routes/DeleteEmotion";
+
+export default function ItemEmotion(props: {itemInfo: EmotionModel, onSetLoading: (bool: boolean) => any, onDelete: () => any}) {
     const [expanded, setExpanded] = useState(false)
     let arrow
     if(expanded){
@@ -19,12 +22,17 @@ export default function ItemEmotion(props: {itemInfo: EmotionModel}) {
             <ThemedView style={styles.emotionItemContainer}>
                 <TouchableOpacity style={styles.expandableText} onPress={() => setExpanded(!expanded)}>
                     {arrow}
-                    <ThemedText style={styles.emotionText}>{props.itemInfo.name}</ThemedText>
+                    <ThemedText style={styles.emotionText}>{props.itemInfo.name} - {formatDate(props.itemInfo.createdAt)}</ThemedText>
                 </TouchableOpacity>
                 <View style={styles.emotionOptionGroup}>
                     <TouchableOpacity
                         style={styles.emotionOption}
-                        onPress={() => alert("deletar")}
+                        onPress={async () => {
+                            props.onSetLoading(true)
+                            if(await DeleteEmotion(props.itemInfo.id)){
+                                props.onDelete()
+                            }
+                        }}
                     >
                         <Entypo name="trash" size={32} color={'white'} />
                     </TouchableOpacity>
@@ -37,7 +45,9 @@ export default function ItemEmotion(props: {itemInfo: EmotionModel}) {
                 </View>
             </ThemedView>
             {expanded && (
-                <Text>apdojfapsofja</Text>
+                <View style={styles.expandedView}>
+                    <Text style={{color: 'white'}}>{props.itemInfo.description}</Text>
+                </View>
             )}
         </ThemedView>
         <View style={{height: 10}}/>
@@ -47,6 +57,11 @@ export default function ItemEmotion(props: {itemInfo: EmotionModel}) {
 
 
 const styles = StyleSheet.create({
+    expandedView: {
+        flex:1,
+        paddingHorizontal: 12,
+        paddingBottom: 12
+    },
     expandableText: {
         flexDirection: 'row',
         flex: 1,

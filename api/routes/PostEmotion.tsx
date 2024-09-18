@@ -19,7 +19,6 @@ export default function PostEmotion(props: { name: string | null; description: s
                 "createdAt": "0"
             },
         ).then( response => {
-            console.log(response)
             props.onAddEmotion()
         })
         .catch( error => {

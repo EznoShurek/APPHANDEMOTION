@@ -1,11 +1,12 @@
 import { EmotionModel } from "@/model/EmotionModel";
-import React from "react";
+import React, { useCallback } from "react";
 import { useEffect, useState } from "react";
 import { api } from "../api";
 import { formatDate } from "@/utils/formatDate";
 import { AppError } from "@/utils/AppError";
 import { FlatList, View } from "react-native";
 import ItemEmotion from "@/components/EmotionItem";
+import { useFocusEffect } from "expo-router";
 
 export function AllEmotions() {
     const [emotion, setEmotion] = useState<EmotionModel[]>([])
@@ -13,13 +14,13 @@ export function AllEmotions() {
 
     async function fetchEmotion() {
         try {
+            setIsLoading(true)
             const { data } = await api.get("/emotions")
+            console.log(data)
             const emotions = data.map((emotion: EmotionModel) => ({
                 ...emotion,
-                created_at: formatDate(emotion.created_at)
             }));
 
-            console.log(emotions);
             setEmotion(emotions);
         } catch (error) {
             const isAppError = error instanceof AppError;
@@ -32,17 +33,21 @@ export function AllEmotions() {
     useEffect(
         () => {
             fetchEmotion()
-        }, []
-    );
+    }, [])
+    
 
     return (
-        <FlatList
-        data={emotion}
-        scrollEnabled={false}
-        renderItem={item => 
-            <ItemEmotion 
-                itemInfo={item.item}
-            />
-        }/>
+        <View>
+            <FlatList
+            data={emotion}
+            scrollEnabled={false}
+            renderItem={item => 
+                <ItemEmotion 
+                    itemInfo={item.item}
+                    onSetLoading = {(it) => {setIsLoading(it)}}
+                    onDelete={() => fetchEmotion()}
+                />
+            }/>
+        </View>
     )
 }
