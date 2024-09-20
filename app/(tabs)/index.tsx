@@ -1,5 +1,5 @@
-import React, { useState } from 'react';
-import { Image, StyleSheet, TextInput, TouchableOpacity, View } from 'react-native';
+import React, { useState, useEffect } from 'react';
+import { Image, StyleSheet, TextInput, TouchableOpacity, View, Text } from 'react-native'; // Importando Text
 import { Entypo } from '@expo/vector-icons';
 import ParallaxScrollView from '@/components/ParallaxScrollView';
 import { ThemedText } from '@/components/ThemedText';
@@ -9,21 +9,45 @@ import PostEmotion from '@/api/routes/PostEmotion';
 
 export default function HomeScreen() {
   const [selectedEmotion, setSelectedEmotion] = useState<string | null>(null);
-  const [description, setDescription] = useState("")
+  const [description, setDescription] = useState("");
+  const [currentPhrase, setCurrentPhrase] = useState('');
+
+  const phrases = [
+    "Às vezes, a vida nos ensina a dançar na tempestade!",
+    "Diga para aqueles, o quanto você os ama!",
+    "O amor-próprio é o primeiro passo para a felicidade!",
+    "A vida é uma montanha-russa; abrace as emoções em cada curva",
+    "eu, Enzo, desenvolvedor desse app, gostaria de te conhecer, sabia?"
+  ];
+
+  useEffect(() => {
+    const updatePhrase = () => {
+      const randomIndex = Math.floor(Math.random() * phrases.length);
+      setCurrentPhrase(phrases[randomIndex]);
+    };
+
+    updatePhrase();
+    const intervalId = setInterval(updatePhrase, 15000);
+    return () => clearInterval(intervalId);
+  }, []);
 
   return (
     <ParallaxScrollView
       headerBackgroundColor={{ light: '#A1CEDC', dark: '#1D3D47' }}
-      headerImage={<Image style={styles.reactLogo} />}>
-      
+      headerImage={
+        <View style={styles.phraseContainer}>
+          <Text style={styles.phraseText}>{currentPhrase}</Text>
+        </View>
+      }
+    >
       <ThemedView style={styles.titleContainer}>
         <ThemedText type="title">Seja bem-vindo(a)!</ThemedText>
       </ThemedView>
 
       <ThemedView style={styles.stepContainer}>
         <ThemedText type="subtitle">Como você está se sentindo hoje?</ThemedText>
-        
-        {/* botoes com icons de caarinha feliz, neutra e triste */}
+
+        {/* Botões com ícones de carinha feliz, neutra e triste */}
         <View style={styles.buttonContainer}>
           <TouchableOpacity
             style={[
@@ -65,11 +89,11 @@ export default function HomeScreen() {
           onChangeText={setDescription}
         />
 
-      <PostEmotion
-        name = {selectedEmotion}
-        description = {description}
-        intensity = "ALTA"
-      />
+        <PostEmotion
+          name={selectedEmotion}
+          description={description}
+          intensity="ALTA"
+        />
       </ThemedView>
     </ParallaxScrollView>
   );
@@ -85,6 +109,17 @@ const styles = StyleSheet.create({
     gap: 8,
     marginBottom: 8,
   },
+  phraseContainer: {
+    backgroundColor: '#1D3D47',
+    justifyContent: 'center',
+    alignItems: 'center',
+    height: 100,
+    flexDirection: 'row',
+  },
+  phraseText: {
+    fontSize: 18,
+    color: 'white', 
+  },
   reactLogo: {
     height: 178,
     width: 290,
@@ -93,14 +128,14 @@ const styles = StyleSheet.create({
     position: 'absolute',
   },
   input: {
-    height: 100,           // Altura da caixa de texto
-    padding: 10,           // Espaçamento interno
-    borderWidth: 2,        // Espessura da borda
-    borderColor: '#000',   // Cor da borda (preto)
-    borderRadius: 8,       // Bordas arredondadas
-    fontSize: 16,          // Tamanho da fonte
-    textAlignVertical: 'top', // Alinha o texto no topo ao digitar
-    backgroundColor: '#fff', // Cor de fundo da caixa de texto (branco) < apoio chatgpt
+    height: 100,
+    padding: 10,
+    borderWidth: 2,
+    borderColor: '#000',
+    borderRadius: 8,
+    fontSize: 16,
+    textAlignVertical: 'top',
+    backgroundColor: '#fff', 
   },
   buttonContainer: {
     flexDirection: 'row',
@@ -117,6 +152,6 @@ const styles = StyleSheet.create({
     alignItems: 'center',
   },
   selectedButton: {
-    backgroundColor: '#1D3D47', // funçao que indica qual botao está selecionado através da cor
+    backgroundColor: '#1D3D47', 
   },
 });

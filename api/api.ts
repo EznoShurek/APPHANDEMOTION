@@ -1,6 +1,8 @@
 import axios from "axios";
 import { AppError } from "@/utils/AppError";
-import { apiUrl } from "@/etc";
+import { apiUrl } from "./etc";
+
+
 
 const SERVER_URL = apiUrl
 const api = axios.create({
