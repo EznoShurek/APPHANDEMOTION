@@ -67,3 +67,15 @@ Tecnologias e aplicações utilizadas:
   *  Criação do banco de dados
     
   *  Criando telas e realizando pequenas mudanças ( estéticas e funcionais )
+ 
+  *  Adição da mecânica principal, página de "entitulamento" como por exemplo > " como se sente? " e página de ajuda "ligue já para o CVV(Centro de Valorização da Vida" e tabela de emoções sincronizada ao BE. 
+    
+ 3ª Semana >
+
+ * Adição de frases motivacionais para preencher melhor a tela e enriquecer o aplicativo, formando um ambiente que planejamos, aconchegante, cuidadoso e amigável.
+
+ * Alinhamento do BE com o restante do aplicativo.
+
+ * Reogarnização de commits que estavam se sobrepondo.
+
+ * Análise do comportamento do app nas plataformas > prioridade android.
