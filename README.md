@@ -12,8 +12,7 @@ Três estudantes que se uniram para realizar o projeto, os responsáveis são:
    
    João Victor Heringer "https://www.linkedin.com/in/jo%C3%A3o-heringer-4932281bb/"
   
-
-   Lucas[...]
+   Lucas Coelho Oliveira da Silva "https://www.linkedin.com/in/lucas-coelho-772aa2267/"
 
 Design:
 
