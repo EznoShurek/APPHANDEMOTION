@@ -13,6 +13,7 @@ export default function HomeScreen() {
   const [selectedEmotion, setSelectedEmotion] = useState<string | null>(null);
   const [description, setDescription] = useState("");
   const [currentPhrase, setCurrentPhrase] = useState('');
+  const [showDailyForm, setShowDailyForm] = useState(false)
 
   function moreInfo() {
     Alert.alert(
