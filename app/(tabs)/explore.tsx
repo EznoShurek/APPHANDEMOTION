@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import Ionicons from '@expo/vector-icons/Ionicons';
-import { StyleSheet, TextInput, View, Text } from 'react-native';
-
+import { StyleSheet, TextInput, View, Text, Platform } from 'react-native';
 import ParallaxScrollView from '@/components/ParallaxScrollView';
+import { AllEmotions } from '@/api/routes/GetEmotion';
 import { ThemedText } from '@/components/ThemedText';
 import { ThemedView } from '@/components/ThemedView';
 
@@ -31,40 +31,19 @@ export default function TabTwoScreen() {
   return (
     <ParallaxScrollView
       headerBackgroundColor={{ light: '#A1CEDC', dark: '#1D3D47' }}
-      headerImage={
-        <View style={styles.phraseContainer}>
-          <Text style={styles.phraseText}>{currentPhrase}</Text>
-        </View>
-      }
-    >
-      <ThemedView style={styles.titleContainer}>
-        <ThemedText type="title">Sobre você!</ThemedText>
-      </ThemedView>
-
-      <ThemedText>Fale mais sobre você, se sinta à vontade e abra seu coração!</ThemedText>
-      <TextInput
-        style={styles.input}
-        placeholder="As minhas noites de sono têm sido..."
-        placeholderTextColor="#999"
-        multiline
-      />
-      <TextInput
-        style={styles.input}
-        placeholder="Como você se imagina daqui a um mês?"
-        placeholderTextColor="#999"
-        multiline
-      />
-      <TextInput
-        style={styles.input}
-        placeholder="A maior alegria da minha semana foi..."
-        placeholderTextColor="#999"
-        multiline
-      />
+      headerImage={<Ionicons size={310}  style={styles.headerImage} />}>
+      <ThemedText style={styles.bodyTitle}>Linha do tempo de emoções</ThemedText>
+      <AllEmotions/>
     </ParallaxScrollView>
   );
 }
 
 const styles = StyleSheet.create({
+  bodyTitle: {
+    alignSelf: 'center',
+    padding: 6,
+    fontSize: 18
+  },
   headerImage: {
     color: '#808080',
     bottom: -90,

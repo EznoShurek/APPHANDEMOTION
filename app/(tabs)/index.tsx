@@ -1,17 +1,37 @@
 import React, { useState, useEffect } from 'react';
-import { Image, StyleSheet, TextInput, TouchableOpacity, View, Text } from 'react-native'; // Importando Text
+import { Image, StyleSheet, TextInput, TouchableOpacity, View, Text, Alert } from 'react-native'; // Importando Text
 import { Entypo } from '@expo/vector-icons';
 import ParallaxScrollView from '@/components/ParallaxScrollView';
 import { ThemedText } from '@/components/ThemedText';
 import { ThemedView } from '@/components/ThemedView';
 
 import PostEmotion from '@/api/routes/PostEmotion';
+import EmotionCarrousel from '@/components/emotionCarrousel';
+import DailyForm from '../dailyForm';
 
 export default function HomeScreen() {
   const [selectedEmotion, setSelectedEmotion] = useState<string | null>(null);
   const [description, setDescription] = useState("");
   const [currentPhrase, setCurrentPhrase] = useState('');
 
+  function moreInfo() {
+    Alert.alert(
+      "Emoção salva", 
+      "Deseja falar mais sobre o seu dia?",
+      [
+        {
+          text: "Não",
+          style: "cancel"
+        },
+        {
+          text: "Sim",
+          onPress: () => setShowDailyForm(true),
+          style: "default"
+        }
+      ]
+  );
+  }
+  
   const phrases = [
     "Às vezes, a vida nos ensina a dançar na tempestade!",
     "Diga para aqueles, o quanto você os ama!",
@@ -47,39 +67,11 @@ export default function HomeScreen() {
       <ThemedView style={styles.stepContainer}>
         <ThemedText type="subtitle">Como você está se sentindo hoje?</ThemedText>
 
-        {/* Botões com ícones de carinha feliz, neutra e triste */}
-        <View style={styles.buttonContainer}>
-          <TouchableOpacity
-            style={[
-              styles.emotionButton,
-              selectedEmotion === 'feliz' && styles.selectedButton,
-            ]}
-            onPress={() => setSelectedEmotion('feliz')}
-          >
-            <Entypo name="emoji-happy" size={24} color={selectedEmotion === 'feliz' ? '#fff' : '#000'} />
-          </TouchableOpacity>
-
-          <TouchableOpacity
-            style={[
-              styles.emotionButton,
-              selectedEmotion === 'neutro' && styles.selectedButton,
-            ]}
-            onPress={() => setSelectedEmotion('neutro')}
-          >
-            <Entypo name="emoji-neutral" size={24} color={selectedEmotion === 'neutro' ? '#fff' : '#000'} />
-          </TouchableOpacity>
-
-          <TouchableOpacity
-            style={[
-              styles.emotionButton,
-              selectedEmotion === 'triste' && styles.selectedButton,
-            ]}
-            onPress={() => setSelectedEmotion('triste')}
-          >
-            <Entypo name="emoji-sad" size={24} color={selectedEmotion === 'triste' ? '#fff' : '#000'} />
-          </TouchableOpacity>
-        </View>
-
+        {/* botoes com icons de caarinha feliz, neutra e triste */}
+        <EmotionCarrousel
+          selectedEmotion={selectedEmotion}
+          onEmotionSelected={(name) => setSelectedEmotion(name)}
+        />
         <TextInput
           style={styles.input}
           placeholder="Tenho me sentido assim porque..."
@@ -90,11 +82,19 @@ export default function HomeScreen() {
         />
 
         <PostEmotion
-          name={selectedEmotion}
-          description={description}
-          intensity="ALTA"
+          name = {selectedEmotion}
+          description = {description}
+          intensity = "ALTA"
+          onAddEmotion={() => {
+            moreInfo()
+            setDescription("")
+          }}
         />
       </ThemedView>
+      <DailyForm
+        visible={showDailyForm}
+        callBack={(bool) => setShowDailyForm(bool)}
+      />
     </ParallaxScrollView>
   );
 }

@@ -3,5 +3,5 @@ export type EmotionModel = {
     name: string;
     description: string;
     intensity: string;
-    created_at: string;
+    createdAt: string;
 }

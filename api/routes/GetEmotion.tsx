@@ -1,23 +1,29 @@
 import { EmotionModel } from "@/model/EmotionModel";
+import React, { useCallback } from "react";
 import { useEffect, useState } from "react";
 import { api } from "../api";
 import { formatDate } from "@/utils/formatDate";
 import { AppError } from "@/utils/AppError";
-import { View, Text, Button } from "react-native";
+import { FlatList, View } from "react-native";
+import ItemEmotion from "@/components/EmotionItem";
+import { useFocusEffect } from "expo-router";
+import EditEmotion from "./EditEmotion";
 
 export function AllEmotions() {
     const [emotion, setEmotion] = useState<EmotionModel[]>([])
     const [isLoading, setIsLoading] = useState(true)
+    const [emotionEdit, setEmotionEdit] = useState<EmotionModel |null>(null)
+    const [visible, setVisible] = useState(false)
 
     async function fetchEmotion() {
         try {
+            setIsLoading(true)
             const { data } = await api.get("/emotions")
+            console.log(data)
             const emotions = data.map((emotion: EmotionModel) => ({
                 ...emotion,
-                created_at: formatDate(emotion.created_at)
             }));
 
-            console.log(emotions);
             setEmotion(emotions);
         } catch (error) {
             const isAppError = error instanceof AppError;
@@ -27,17 +33,35 @@ export function AllEmotions() {
         }
     }
 
-    useEffect(() => {
-        fetchEmotion()
-    }, []);
+    useEffect(
+        () => {
+            fetchEmotion()
+    }, [])
+    
 
     return (
         <View>
-            <Text> Pressione o botao para consumir a API </Text>
-            <Button
-                onPress = { fetchEmotion }
-                title = "Pressione"
-            />
+            <FlatList
+            data={emotion}
+            scrollEnabled={false}
+            renderItem={item => 
+                <ItemEmotion 
+                    itemInfo={item.item}
+                    onSetLoading = {(it) => {setIsLoading(it)}}
+                    onDelete={() => fetchEmotion()}
+                    setEdit={(editItem) => {
+                        setEmotionEdit(editItem)
+                        setVisible(true)
+                    }}
+                />
+            }/>
+            {emotionEdit != null && 
+                <EditEmotion
+                    visible = {visible}
+                    emotion={emotionEdit!}
+                    callBackSave={() => setVisible(false)}
+                />
+            }
         </View>
     )
 }

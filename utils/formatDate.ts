@@ -1,8 +1,5 @@
-export function formatDate(timeStamp: string): string {
-    const dateObject = new Date(timeStamp)
-    const day = dateObject.getDate().toString().padStart(2, "0")
-    const month = (dateObject.getMonth() + 1).toString().padStart(2, "0")
-    const year = dateObject.getFullYear().toString()
+export function formatDate(date: string): string {
+    const dateObject = date.split('-')
     
-    return `${day}/${month}/${year}`;
+    return `${dateObject[2]}/${dateObject[1]}/${dateObject[0]}`;
 }
