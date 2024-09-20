@@ -7,9 +7,12 @@ import { useState } from "react";
 import { formatDate } from "@/utils/formatDate";
 
 import { DeleteEmotion } from "@/api/routes/DeleteEmotion";
+import EditEmotion from "@/api/routes/EditEmotion";
 
-export default function ItemEmotion(props: {itemInfo: EmotionModel, onSetLoading: (bool: boolean) => any, onDelete: () => any}) {
+export default function ItemEmotion(props: {itemInfo: EmotionModel, onSetLoading: (bool: boolean) => any, onDelete: () => any, setEdit: (emotion: EmotionModel) => any}) {
     const [expanded, setExpanded] = useState(false)
+    const [visible, setVisible] = useState(false)
+
     let arrow
     if(expanded){
         arrow = <Entypo name="arrow-bold-down" size={24} color={'white'}/>
@@ -38,7 +41,7 @@ export default function ItemEmotion(props: {itemInfo: EmotionModel, onSetLoading
                     </TouchableOpacity>
                     <TouchableOpacity
                         style={styles.emotionOption}
-                        onPress={() => alert("editar")}
+                        onPress={() => props.setEdit(props.itemInfo)}
                     >
                         <Entypo name='pencil' size={32} color={'white'} />
                     </TouchableOpacity>
