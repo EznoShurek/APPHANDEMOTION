@@ -1,12 +1,9 @@
 import axios from "axios";
-import { AppError } from "@/utils/AppError";
-import { apiUrl } from "./etc";
+import {AppError} from "@/utils/AppError";
+import {apiUrl} from "@/etc";
 
-
-
-const SERVER_URL = apiUrl
 const api = axios.create({
-    baseURL: SERVER_URL
+    baseURL: apiUrl
 });
 
 api.interceptors.response.use(

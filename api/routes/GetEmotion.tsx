@@ -1,12 +1,10 @@
 import { EmotionModel } from "@/model/EmotionModel";
-import React, { useCallback } from "react";
+import React from "react";
 import { useEffect, useState } from "react";
 import { api } from "../api";
-import { formatDate } from "@/utils/formatDate";
 import { AppError } from "@/utils/AppError";
 import { FlatList, View } from "react-native";
 import ItemEmotion from "@/components/EmotionItem";
-import { useFocusEffect } from "expo-router";
 import EditEmotion from "./EditEmotion";
 
 export function AllEmotions() {
@@ -59,7 +57,11 @@ export function AllEmotions() {
                 <EditEmotion
                     visible = {visible}
                     emotion={emotionEdit!}
-                    callBackSave={() => setVisible(false)}
+                    callBackSave={() => {
+                        setEmotionEdit(null)
+                        fetchEmotion()
+                        setVisible(false)
+                    }}
                 />
             }
         </View>
