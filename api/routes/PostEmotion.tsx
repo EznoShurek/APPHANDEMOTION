@@ -12,11 +12,9 @@ export default function PostEmotion(props: { name: string | null; description: s
         api.post(
             "/emotions",
             {
-                "id": 0,
                 "name": props.name, 
                 "description": props.description, 
-                "intensity": props.intensity,
-                "createdAt": "0"
+                "intensity": props.intensity
             },
         ).then( response => {
             props.onAddEmotion()

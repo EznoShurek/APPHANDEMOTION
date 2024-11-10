@@ -4,14 +4,11 @@ import { ThemedText } from "./ThemedText";
 import { ThemedView } from "./ThemedView";
 import { EmotionModel } from "@/model/EmotionModel";
 import { useState } from "react";
-import { formatDate } from "@/utils/formatDate";
 
 import { DeleteEmotion } from "@/api/routes/DeleteEmotion";
-import EditEmotion from "@/api/routes/EditEmotion";
 
 export default function ItemEmotion(props: {itemInfo: EmotionModel, onSetLoading: (bool: boolean) => any, onDelete: () => any, setEdit: (emotion: EmotionModel) => any}) {
     const [expanded, setExpanded] = useState(false)
-    const [visible, setVisible] = useState(false)
 
     let arrow
     if(expanded){
@@ -25,7 +22,7 @@ export default function ItemEmotion(props: {itemInfo: EmotionModel, onSetLoading
             <ThemedView style={styles.emotionItemContainer}>
                 <TouchableOpacity style={styles.expandableText} onPress={() => setExpanded(!expanded)}>
                     {arrow}
-                    <ThemedText style={styles.emotionText}>{props.itemInfo.name} - {formatDate(props.itemInfo.createdAt)}</ThemedText>
+                    <ThemedText style={styles.emotionText}>{props.itemInfo.name} - {props.itemInfo.createdAt}</ThemedText>
                 </TouchableOpacity>
                 <View style={styles.emotionOptionGroup}>
                     <TouchableOpacity
