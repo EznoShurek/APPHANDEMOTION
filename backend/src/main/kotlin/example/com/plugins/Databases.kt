@@ -8,10 +8,11 @@ import io.ktor.server.routing.*
 import java.sql.*
 import kotlinx.coroutines.*
 import org.jetbrains.exposed.sql.*
+import org.jetbrains.exposed.sql.transactions.transaction
 
 fun Application.configureDatabases() {
     Database.connect(
-        "jdbc:postgresql://localhost:5432/postgres",
+        url = "jdbc:postgresql://localhost:5432/postgres",
         user = "postgres",
         password = "1234"
         )

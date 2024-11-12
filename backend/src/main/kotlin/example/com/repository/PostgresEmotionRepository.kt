@@ -1,8 +1,8 @@
-package example.com.Repository
+package example.com.repository
 
 import example.com.db.EmotionDAO
 import example.com.db.EmotionTable
-import example.com.db.daoToModel
+import example.com.db.emotionDAOToModel
 import example.com.db.suspendTransaction
 import example.com.model.Emotion
 import example.com.model.Intensity
@@ -13,20 +13,20 @@ import java.time.LocalDate
 
 class PostgresEmotionRepository : EmotionRepository {
     override suspend fun allEmotions(): List<Emotion> = suspendTransaction {
-        EmotionDAO.all().map(::daoToModel)
+        EmotionDAO.all().map(::emotionDAOToModel)
     }
 
     override suspend fun emotionsByIntensity(intensity: Intensity): List<Emotion> = suspendTransaction {
         EmotionDAO
             .find { (EmotionTable.intensity eq intensity.toString()) }
-            .map(::daoToModel)
+            .map(::emotionDAOToModel)
     }
 
     override suspend fun emotionByName(name: String): Emotion? = suspendTransaction{
         EmotionDAO
             .find{ (EmotionTable.name eq name) }
             .limit(1)
-            .map(::daoToModel)
+            .map(::emotionDAOToModel)
             .firstOrNull()
     }
 

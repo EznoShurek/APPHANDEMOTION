@@ -1,4 +1,4 @@
-package example.com.Repository
+package example.com.repository
 
 import example.com.model.Emotion
 import example.com.model.Intensity

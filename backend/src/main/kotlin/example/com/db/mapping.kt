@@ -2,7 +2,9 @@ package example.com.db
 
 import example.com.model.Emotion
 import example.com.model.Intensity
+import example.com.model.User
 import kotlinx.coroutines.Dispatchers
+import kotlinx.serialization.Serializable
 import org.jetbrains.exposed.dao.IntEntity
 import org.jetbrains.exposed.dao.IntEntityClass
 import org.jetbrains.exposed.dao.id.EntityID
@@ -17,6 +19,14 @@ object EmotionTable: IntIdTable("emotions") {
     val createdAt = varchar("created_at", 100)
 }
 
+
+object UserTable: IntIdTable("users") {
+    val name = text("name")
+    val email = text("email")
+    val password = text("password")
+    val createdAt = long("created_at")
+}
+
 class EmotionDAO(id: EntityID<Int>): IntEntity(id) {
     companion object : IntEntityClass<EmotionDAO>(EmotionTable)
 
@@ -26,14 +36,30 @@ class EmotionDAO(id: EntityID<Int>): IntEntity(id) {
     var createdAt by EmotionTable.createdAt
 }
 
+class UserDAO(id: EntityID<Int>): IntEntity(id) {
+    companion object: IntEntityClass<UserDAO>(UserTable)
+
+    var name by UserTable.name
+    var email by UserTable.email
+    var password by UserTable.password
+    var createdAt by UserTable.createdAt
+}
+
 suspend fun <T> suspendTransaction(block: Transaction.() -> T): T =
     newSuspendedTransaction(Dispatchers.IO, statement = block)
 
 
-fun daoToModel(dao: EmotionDAO) = Emotion(
+fun emotionDAOToModel(dao: EmotionDAO) = Emotion(
     dao.id.value,
     dao.name,
     dao.description,
     Intensity.valueOf(dao.intensity),
     dao.createdAt
+)
+
+fun userDAOToModel(dao: UserDAO) = User(
+    name = dao.name,
+    password = dao.password,
+    email = dao.email,
+    createdAt = dao.createdAt
 )
