@@ -4,6 +4,7 @@ import example.com.db.EmotionDAO
 import example.com.db.EmotionTable
 import example.com.db.emotionDAOToModel
 import example.com.db.suspendTransaction
+import example.com.dto.EmotionDTO
 import example.com.model.Emotion
 import example.com.model.Intensity
 import org.jetbrains.exposed.sql.SqlExpressionBuilder.eq
@@ -30,11 +31,11 @@ class PostgresEmotionRepository : EmotionRepository {
             .firstOrNull()
     }
 
-    override suspend fun addEmotion(emotion: Emotion): Unit = suspendTransaction{
+    override suspend fun addEmotion(emotion: EmotionDTO): Unit = suspendTransaction{
         EmotionDAO.new {
             name = emotion.name
             description = emotion.description
-            intensity = emotion.intensity.toString()
+            intensity = emotion.intensity
             createdAt = LocalDate.now().toString()
         }
     }
