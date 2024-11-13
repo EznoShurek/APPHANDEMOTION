@@ -2,15 +2,13 @@ import { Tabs } from 'expo-router';
 import React from 'react';
 import Ionicons from '@expo/vector-icons/Ionicons'; 
 import { Colors } from '@/constants/Colors';
-import { useColorScheme } from '@/hooks/useColorScheme';
 
 export default function TabLayout() {
-  const colorScheme = useColorScheme();
 
   return (
     <Tabs
       screenOptions={{
-        tabBarActiveTintColor: Colors[colorScheme ?? 'light'].tint,
+        tabBarActiveTintColor: Colors['light'].tint,
         headerShown: false,
         tabBarShowLabel: false,  
       }}
@@ -46,7 +44,7 @@ export default function TabLayout() {
             <Ionicons 
               name={focused ? 'help-circle' : 'help-circle-outline'} 
               color={color} 
-              size={24} 
+              size={32}
             />
           ),
         }}

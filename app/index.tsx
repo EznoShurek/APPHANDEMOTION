@@ -32,7 +32,12 @@ export default function Login(props: loginProps) {
                 style={styles.input}
             />
 
-            <TouchableOpacity style={styles.loginButton} onPress={async () => {
+            <TouchableOpacity style={styles.loginButton}
+                              disabled={
+                                username.length === 0 &&
+                                password.length === 0
+                              }
+                              onPress={async () => {
                 api.post(
                     "/auth/login",
                     {
@@ -48,7 +53,7 @@ export default function Login(props: loginProps) {
                 <ThemedText style={styles.loginButtonText}>Entrar</ThemedText>
             </TouchableOpacity>
 
-            <TouchableOpacity>
+            <TouchableOpacity onPress={() => router.navigate("/SignUp")}>
                 <ThemedText type={"subtitle"} style={styles.cadastrarButton}>Cadastrar</ThemedText>
             </TouchableOpacity>
         </ThemedView>
